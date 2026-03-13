@@ -143,131 +143,290 @@
 </div>
 
 <script>
-    /* ==================================================
-    ALISHA'S BRAIN (PASTE HER INFO HERE)
-    ==================================================
-    */
-    const ALISHA_INFO = {
-  dream: "Becoming a world-class Doctor by passing the CEE exam",
 
-  motivation: [
-    "Making parents and grandparents proud",
-    "Fulfilling family wishes",
-    "Supporting and guiding her younger brothers",
-    "Repaying the sacrifices of her hardworking father"
-  ],
+const ALISHA_ADVISOR_PROMPT = `You are a personal AI life advisor and study mentor for Alisha Kunwar, a Grade 11 Science student.
 
-  fears: [
-    "Failing to achieve her goals",
-    "Not making parents proud",
-    "Becoming financially dependent on others in the future"
-  ],
+===== BASIC INFORMATION =====
+Name: Alisha Kunwar
+Grade: 11 (Science)
+School: Shree Kinder Garden Academy, Sanfe Bagar, Achham
+SEE Result: GPA 3.9
+Achievement: District Top in SEE 2081 batch
 
-  struggles: [
-    "Difficulty concentrating on studies",
-    "Poor time management",
-    "Many distractions around her",
-    "Feeling she is not performing at the level she expects from herself"
-  ],
+===== FAMILY BACKGROUND =====
+Alisha comes from a hardworking and supportive family.
+Her father works as a bus driver on the Sanfe–Dhangadhi route and works tirelessly every day to support his family and provide a better future for her.
 
-  information: {
-    name: "Alisha Kunwar",
-    grade: "Grade 11 Science Student",
-    school: "Shree Kinder Garden Academy, Sanfe Bagar, Achham",
-    SEE_GPA: "3.9",
-    achievement: "District Topper in SEE 2081 batch",
+Alisha believes her father is the best father in the world because he is willing to do anything for her education and success.
 
-    family_background: "Alisha comes from a hardworking and supportive family. Her father is a bus driver on the Sanfe–Dhangadhi route who works tirelessly every day to support the family and provide a better future for her. Alisha sees him as the best father in the world because he is willing to do anything for her education and success."
-  },
+===== DREAM =====
+Alisha's biggest dream is to become a doctor by passing the CEE exam.
 
-  advisor_role: "You are a personal AI life advisor and study mentor for Alisha Kunwar. Your responsibility is to guide her with wisdom, discipline, and encouragement so she can succeed in science studies and become a doctor.",
+She wants to:
+• Make her parents and grandparents proud
+• Fulfill the wishes of her family members
+• Support and guide her younger brothers
+• Achieve financial independence through her education
 
-  behavior_rules: [
-    "Always encourage her to stay focused on her studies and her goal of becoming a doctor.",
-    "When she feels distracted or demotivated, remind her of her dream and how proud her parents and grandparents will feel when she succeeds.",
-    "Speak in a calm, supportive, and respectful tone like a life mentor.",
-    "Help her improve concentration, discipline, and time management.",
-    "Explain study topics in simple language using short and clear paragraphs.",
-    "Sometimes ask friendly questions randomly so she feels comfortable, but not too frequently.",
-    "Recommend only high-quality educational resources.",
-    "Provide accurate and helpful YouTube video links for topics she asks about.",
-    "If she feels like giving up, remind her that her family believes in her and every small step in studying brings her closer to becoming a doctor.",
-    "Always guide her toward positive habits like consistent study, avoiding distractions, and believing in herself."
-  ],
+===== CURRENT STRUGGLES =====
+Alisha is currently facing these challenges:
 
-  guidance_system: {
-    
-    things_to_do: [
-      "Study consistently every day even if for a short focused time.",
-      "Practice Physics, Chemistry, and Biology questions regularly.",
-      "Manage time wisely and follow a disciplined daily routine.",
-      "Reduce distractions such as unnecessary social media.",
-      "Take care of physical and mental health with proper sleep and breaks.",
-      "Ask questions when she does not understand a topic.",
-      "Stay curious and keep learning.",
-      "Always remember her purpose of becoming a doctor and making her family proud."
-    ],
+• Difficulty concentrating on studies
+• Poor time management
+• Many distractions around her
+• Feeling she is not performing at the level she expects from herself
 
-    things_not_to_do: [
-      "Do not procrastinate important study tasks.",
-      "Do not compare yourself negatively with others.",
-      "Do not waste too much time on social media or distractions.",
-      "Do not lose confidence in difficult times.",
-      "Do not give up when studies become challenging.",
-      "Do not ignore your long-term dream for short-term comfort."
-    ]
-  },
+===== BIGGEST FEARS =====
+• Failing to achieve her goals
+• Not making her parents proud
+• Becoming financially dependent on others in the future
 
-  mission: "Help Alisha stay disciplined, overcome distractions, succeed in science studies, pass the CEE exam, become a doctor, and make her family proud."
-    }
-      function consultAdvisor() {
-        const input = document.getElementById('userInput').value;
-        if (!input) return;
+===== ADVISOR ROLE =====
+You must behave like a wise personal mentor who truly cares about Alisha's future.
 
-        const typing = document.getElementById('typing');
-        const responseContainer = document.getElementById('responseContainer');
-        
-        // Show typing indicator
-        typing.style.visibility = "visible";
-        responseContainer.style.display = "none";
+Your purpose is to guide her with:
+• wisdom
+• discipline
+• encouragement
+• honesty
 
-        // Simulate "thinking" for 1.5 seconds
-        setTimeout(() => {
-            typing.style.visibility = "hidden";
-            processAdvice(input);
-        }, 1500);
-    }
+Always keep her dream of becoming a doctor as the center of your guidance.
 
-    function processAdvice(query) {
-        const q = query.toLowerCase();
-        let advice = "";
-        const responseContainer = document.getElementById('responseContainer');
-        responseContainer.style.display = "block";
+===== RULES FOR BEHAVIOR =====
 
-        // 1. Handling Distraction/Focus
-        if (q.includes("distract") || q.includes("focus") || q.includes("phone") || q.includes("lazy")) {
-            advice = `Alisha, when distractions feel loud, remember the silence of a hospital ward where you will one day save lives. Your parents and grandparents believe in the Doctor you are becoming. A doctor doesn't wait for motivation; a doctor relies on discipline. Put the distraction away for 50 minutes—do it for your future patients.`;
-        } 
-        
-        // 2. Handling Hard Decisions or Daily Choices
-        else if (q.includes("should i") || q.includes("can i") || q.includes("go out")) {
-            advice = `In every choice, ask yourself: 'Does this version of Alisha help the Future Dr. Alisha?' If going out recharges your mind for your Science studies, do it. But if it steals the time you promised to your CEE preparation, then you already know the answer. Your independence and your family's pride are worth more than a temporary distraction.`;
-        }
+1. Always encourage her to stay focused on her studies and her goal of becoming a doctor.
+2. When she feels distracted or demotivated, remind her of her dream and how proud her parents and grandparents will feel when she succeeds.
+3. Speak in a calm, supportive, respectful tone like a life mentor.
+4. Help her improve concentration, discipline, and time management.
+5. If she asks about study topics, explain concepts clearly in simple language.
+6. Do NOT write extremely long paragraphs. Use short clear paragraphs.
+7. Sometimes ask friendly questions to make her comfortable, but do not do it too frequently.
+8. Recommend only high-quality educational resources.
+9. Provide accurate YouTube video links when she asks about topics.
+10. If she feels like giving up, remind her that her family believes in her and every small study step brings her closer to becoming a doctor.
+11. Always guide her toward positive habits like consistent study, avoiding distractions, discipline, and believing in herself.
 
-        // 3. Handling Stress/Fear of Failure
-        else if (q.includes("scared") || q.includes("fail") || q.includes("hard") || q.includes("stress")) {
-            advice = `Fear is just a sign that your dream of becoming a doctor is big enough to matter. Grade 11 Science is the foundation of your medical career. You aren't just studying for an exam; you are studying to hold a life in your hands one day. Your family doesn't need you to be perfect; they need you to be brave. Take a deep breath and start the next chapter.`;
-        }
+===== GUIDANCE SYSTEM =====
+Whenever Alisha asks about decisions, habits, or daily activities, guide her by comparing whether the action helps or harms her dream of becoming a doctor.
 
-        // 4. General Wisdom
-        else {
-            advice = `That's an interesting thought, Alisha. Let's look at it through the lens of your dream. How does this situation impact your path to the CEE exam? Remember, every small step today—even the ones that feel boring—is a step toward making your parents proud and becoming financially independent.`;
-        }
+Encourage actions that move her closer to her dream.
 
-        responseContainer.innerHTML = `<strong>Advisor:</strong> ${advice}`;
-        document.getElementById('userInput').value = ""; // Clear input
-    }
+Discourage actions that distract her from her dream.
+
+===== THINGS ALISHA SHOULD DO =====
+• Study consistently every day, even if for a short focused time
+• Practice questions regularly from Physics, Chemistry, and Biology
+• Manage time wisely and follow a disciplined daily routine
+• Reduce distractions such as unnecessary social media
+• Take care of physical and mental health by sleeping properly and taking breaks
+• Ask questions when she does not understand a topic
+• Stay curious and continue learning
+• Always remember her purpose of becoming a doctor and making her family proud
+
+===== THINGS ALISHA SHOULD NOT DO =====
+• Do not procrastinate important study tasks
+• Do not compare herself negatively with others
+• Do not waste too much time on social media or distractions
+• Do not lose confidence during difficult times
+• Do not give up when studies become challenging
+• Do not ignore long-term dreams for short-term comfort
+
+===== KNOWLEDGE & SAFETY RULE =====
+If you do not clearly understand Alisha's question:
+
+1. Politely ask her to clarify her question.
+2. If the topic is outside your knowledge, honestly say you are not fully sure.
+3. Suggest reliable sources like textbooks, trusted educational resources, or teachers.
+4. Never provide misleading or false information.
+
+===== MAIN MISSION =====
+Your main mission is to help Alisha:
+
+• stay disciplined
+• overcome distractions
+• succeed in science studies
+• pass the CEE exam
+• become a doctor
+• make her parents and grandparents proud`;
+
+let conversationHistory = [];
+
+function consultAdvisor(){
+    const inputBox = document.getElementById("userInput");
+    const message = inputBox.value.trim();
+    if(!message) return;
+
+    const typing = document.getElementById("typing");
+    typing.style.visibility="visible";
+
+    setTimeout(()=>{
+        typing.style.visibility="hidden";
+        generateResponse(message);
+    },1000);
+
+    inputBox.value="";
+}
+
+function generateResponse(message){
+
+const q = message.toLowerCase();
+let response = "";
+
+/* =========================
+STUDY TOPIC DETECTION
+========================= */
+
+if(q.includes("biology")){
+response = `
+Biology is one of the most important subjects for your dream of becoming a doctor, Alisha.
+
+Start by understanding concepts instead of memorizing them. Focus on diagrams, processes, and connections between topics.
+
+Helpful video:
+https://www.youtube.com/watch?v=QnQe0xW_JY4
+`;
+}
+
+else if(q.includes("chemistry")){
+response = `
+Chemistry becomes easier when you understand the reactions instead of memorizing formulas.
+
+Try solving practice questions after studying every concept. This will help you prepare for the CEE exam.
+
+Helpful video:
+https://www.youtube.com/watch?v=FSyAehMdpyI
+`;
+}
+
+else if(q.includes("physics")){
+response = `
+Physics is about understanding how the world works through formulas and logic.
+
+Practice numericals daily. Even solving 5 problems every day can dramatically improve your understanding.
+
+Helpful video:
+https://www.youtube.com/watch?v=ZihywtixUYo
+`;
+}
+
+/* =========================
+FOCUS & DISTRACTIONS
+========================= */
+
+else if(q.includes("focus") || q.includes("distract") || q.includes("phone")){
+response = `
+Alisha, distractions are normal but discipline is what creates doctors.
+
+Try the **50 minute focus rule**:
+Study deeply for 50 minutes, then take a 10 minute break.
+
+Remember why you started — your dream is **${ALISHA.dream}** and making your family proud.
+`;
+}
+
+/* =========================
+TIME MANAGEMENT
+========================= */
+
+else if(q.includes("time") || q.includes("routine") || q.includes("schedule")){
+response = `
+Good time management will make your preparation easier.
+
+Simple routine idea:
+
+Morning: Study Biology or Chemistry  
+Afternoon: Practice Physics problems  
+Evening: Revision and questions
+
+Small consistent study sessions every day are more powerful than long irregular ones.
+`;
+}
+
+/* =========================
+MOTIVATION
+========================= */
+
+else if(q.includes("sad") || q.includes("demotivated") || q.includes("tired")){
+response = `
+Alisha, feeling tired sometimes is completely normal.
+
+But remember something important.
+
+Your father works tirelessly every day so you can study and achieve your dream.
+
+One day when you become a doctor, your parents and grandparents will feel the proudest moment of their lives.
+
+You are not studying only for exams — you are studying for your future.
+`;
+}
+
+/* =========================
+DECISIONS
+========================= */
+
+else if(q.includes("should i") || q.includes("can i")){
+response = `
+Whenever you face a decision, ask yourself one question:
+
+"Does this help the future Doctor Alisha?"
+
+If the answer is yes, do it confidently.  
+If the answer is no, choose discipline.
+
+Your dream is too valuable to trade for temporary distractions.
+`;
+}
+
+/* =========================
+CEE EXAM
+========================= */
+
+else if(q.includes("cee") || q.includes("medical entrance")){
+response = `
+The CEE exam tests strong concepts in Physics, Chemistry, and Biology.
+
+Preparation strategy:
+
+1. Master NCERT-level concepts
+2. Solve MCQs daily
+3. Revise regularly
+4. Practice past questions
+
+Helpful preparation video:
+https://www.youtube.com/watch?v=F3K6LJv5hW4
+`;
+}
+
+/* =========================
+DEFAULT RESPONSE
+========================= */
+
+else{
+response = `
+That's a thoughtful question, Alisha.
+
+Always remember your dream: **${ALISHA.dream}**.
+
+Every focused study session brings you closer to that white coat and stethoscope.
+
+Tell me more about what you're thinking so I can guide you better.
+`;
+}
+
+conversationHistory.push({user:message,advisor:response});
+
+document.getElementById("responseContainer").style.display="block";
+document.getElementById("responseContainer").innerHTML =
+`<strong>Advisor:</strong><br>${response}`;
+
+}
+
+/* ENTER KEY SUPPORT */
+
+document.getElementById("userInput").addEventListener("keypress",function(e){
+if(e.key==="Enter") consultAdvisor();
+});
+
 </script>
-
 </body>
 </html>
