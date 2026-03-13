@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Alisha's Advisor | The Journey</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0ea5e9; /* Medical Blue */
+            --secondary: #8b5cf6;
+            --accent: #10b981; /* Success Green */
+            --bg: #020617;
+            --glass: rgba(15, 23, 42, 0.7);
+            --text: #f1f5f9;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: radial-gradient(circle at top left, #0f172a, #020617);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .advisor-container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 0 100px rgba(14, 165, 233, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .typing-indicator {
+            color: var(--primary);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+            visibility: hidden;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .dream-banner {
+            background: linear-gradient(90deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 500;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .chat-area {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .input-box {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 15px;
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(14, 165, 233, 0.2); }
+
+        .send-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .send-btn:hover { transform: scale(1.05); background: #38bdf8; }
+
+        .response-box {
+            margin-top: 25px;
+            line-height: 1.7;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            border-left: 2px solid var(--primary);
+            padding-left: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="advisor-container">
+    <div class="header">
+        <div id="typing" class="typing-indicator">Typing to Alisha...</div>
+        <h1>Wise Life Advisor</h1>
+        <div class="dream-banner">
+            <i class="fas fa-stethoscope"></i> Future Doctor: Alisha Kunwar
+        </div>
+    </div>
+
+    <div class="chat-area">
+        <div id="advisorOutput">
+            Hello Alisha. Every decision you make today is a seed for the doctor you will become tomorrow. How are we moving toward your dream today?
+        </div>
+        
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Tell me what's on your mind...">
+            <button class="send-btn" onclick="consultAdvisor()">Consult</button>
+        </div>
+    </div>
+
+    <div id="responseContainer" class="response-box" style="display:none;"></div>
+</div>
+
+<script>
+    /* ==================================================
+    ALISHA'S BRAIN (PASTE HER INFO HERE)
+    ==================================================
+    */
+    const ALISHA_INFO = {
+        dream: "Becoming a world-class Doctor",
+        motivation: "Making parents and grandparents proud, fulfilling family wishes.",
+        fears: ["Failing goals", "Not making parents proud", "Financial dependency"],
+        struggles: ["Focus", "Time management", "Distractions"],
+        currentGrade: "Grade 11 Science"
+    };
+
+    function consultAdvisor() {
+        const input = document.getElementById('userInput').value;
+        if (!input) return;
+
+        const typing = document.getElementById('typing');
+        const responseContainer = document.getElementById('responseContainer');
+        
+        // Show typing indicator
+        typing.style.visibility = "visible";
+        responseContainer.style.display = "none";
+
+        // Simulate "thinking" for 1.5 seconds
+        setTimeout(() => {
+            typing.style.visibility = "hidden";
+            processAdvice(input);
+        }, 1500);
+    }
+
+    function processAdvice(query) {
+        const q = query.toLowerCase();
+        let advice = "";
+        const responseContainer = document.getElementById('responseContainer');
+        responseContainer.style.display = "block";
+
+        // 1. Handling Distraction/Focus
+        if (q.includes("distract") || q.includes("focus") || q.includes("phone") || q.includes("lazy")) {
+            advice = `Alisha, when distractions feel loud, remember the silence of a hospital ward where you will one day save lives. Your parents and grandparents believe in the Doctor you are becoming. A doctor doesn't wait for motivation; a doctor relies on discipline. Put the distraction away for 50 minutes—do it for your future patients.`;
+        } 
+        
+        // 2. Handling Hard Decisions or Daily Choices
+        else if (q.includes("should i") || q.includes("can i") || q.includes("go out")) {
+            advice = `In every choice, ask yourself: 'Does this version of Alisha help the Future Dr. Alisha?' If going out recharges your mind for your Science studies, do it. But if it steals the time you promised to your CEE preparation, then you already know the answer. Your independence and your family's pride are worth more than a temporary distraction.`;
+        }
+
+        // 3. Handling Stress/Fear of Failure
+        else if (q.includes("scared") || q.includes("fail") || q.includes("hard") || q.includes("stress")) {
+            advice = `Fear is just a sign that your dream of becoming a doctor is big enough to matter. Grade 11 Science is the foundation of your medical career. You aren't just studying for an exam; you are studying to hold a life in your hands one day. Your family doesn't need you to be perfect; they need you to be brave. Take a deep breath and start the next chapter.`;
+        }
+
+        // 4. General Wisdom
+        else {
+            advice = `That's an interesting thought, Alisha. Let's look at it through the lens of your dream. How does this situation impact your path to the CEE exam? Remember, every small step today—even the ones that feel boring—is a step toward making your parents proud and becoming financially independent.`;
+        }
+
+        responseContainer.innerHTML = `<strong>Advisor:</strong> ${advice}`;
+        document.getElementById('userInput').value = ""; // Clear input
+    }
+</script>
+
+</body>
+</html>
